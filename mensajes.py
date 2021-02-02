@@ -4,9 +4,9 @@ from re import match
 from random import choice
 
 from scraping import MonedasV, PelisTMDB
-#from NLP import processing, mencion
+from NLP import processing, mencion
 
-#codigos, modelo = processing()
+codigos, modelo = processing()
 
 
 def messageHandler(mensaje):
@@ -17,7 +17,7 @@ def messageHandler(mensaje):
     if matcher:
         mensaje = mensaje.replace(os.environ["BOT_NICK"], '').strip()
         
-        return mensaje #mencion(mensaje, codigos, modelo)
+        return mencion(mensaje, codigos, modelo)
         
     elif mensaje == '/start':
         quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual\n/peli: Te recomiento una película diariamente'
