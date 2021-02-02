@@ -19,7 +19,7 @@ def messageHandler(mensaje):
         
         return mensaje #mencion(mensaje, codigos, modelo)
         
-    elif mensaje == '/start' or '/help':
+    elif mensaje == '/start' or mensaje == '/help':
         quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual\n/peli: Te recomiento una película diariamente'
 
         return quehaceres
