@@ -1,6 +1,7 @@
 from spacy import load
 nlp = load('/app/es_core_news_lg-3.0.0/es_core_news_lg/es_core_news_lg-3.0.0')
 
+import os
 from numpy import array, asarray, reshape, argmax
 from sklearn.linear_model import LogisticRegression
 
