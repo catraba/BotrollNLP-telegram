@@ -8,8 +8,6 @@ from NLP import processing, mencion
 
 codigos, modelo = processing()
 
-with open(os.path.join(os.getcwd(), 'conversaciones.json')) as file:
-    conversaciones = json.load(file)
 
 def messageHandler(mensaje):
     
