@@ -23,7 +23,7 @@ def messageHandler(mensaje):
         return 'No hablo tu idioma melón'
         
     elif mensaje == '/start':
-        quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual\n/peli: Te recomiento una película diariamente\n/vacunas: Estado de la vacunación frente al COVID-19 en España'
+        quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual. También disponible con eth, xrp y dot\n/peli: Te recomiento una película diariamente\n/vacunas: Estado de la vacunación frente al COVID-19 en España'
 
         return quehaceres
 
@@ -31,6 +31,21 @@ def messageHandler(mensaje):
         scrapper = MonedasV('bitcoin')
         
         return scrapper.extrarPrecio()
+    
+    elif mensaje == '/eth':
+        scrapper = MonedasV('ethereum')
+        
+        return scrapper.extraerPrecio()
+    
+    elif mensaje == '/xrp':
+        scrapper = MonedasV('xrp')
+        
+        return scrapper.extraerPrecio()
+    
+    elif mensaje == '/dot':
+        scrapper = MonedasV('polkadot-new')
+        
+        return scrapper.extraerPrecio()
 
     elif mensaje == '/peli':
         eleccion = choice(PelisTMDB.peliDiaria(os.environ["IMDB_TOKEN"]))
