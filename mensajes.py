@@ -17,13 +17,12 @@ def messageHandler(mensaje):
     matcher = match(patron, mensaje)
 
     if matcher:
-        #mensaje = mensaje.replace(os.environ["BOT_NICK"], '').strip()
+        mensaje = mensaje.replace(os.environ["BOT_NICK"], '').strip()
         
-        #return mencion(mensaje, codigos, modelo)
-        return 'No hablo tu idioma melón'
+        return mencion(mensaje, codigos, modelo)
         
     elif mensaje == '/start':
-        quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual. También disponible con eth, xrp y dot\n/peli: Te recomiento una película diariamente\n/vacunas: Estado de la vacunación frente al COVID-19 en España'
+        quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual. También disponible con eth, xrp y dot\n/peli: Te recomiento una película diariamente\n/vacunas: Estado de la vacunación COVID-19 en España'
 
         return quehaceres
 
@@ -31,21 +30,21 @@ def messageHandler(mensaje):
         scrapper = MonedasV('bitcoin')
         
         return scrapper.extrarPrecio()
-    
+
     elif mensaje == '/eth':
         scrapper = MonedasV('ethereum')
         
-        return scrapper.extraerPrecio()
-    
+        return scrapper.extrarPrecio()
+
     elif mensaje == '/xrp':
         scrapper = MonedasV('xrp')
         
-        return scrapper.extraerPrecio()
-    
+        return scrapper.extrarPrecio()
+
     elif mensaje == '/dot':
         scrapper = MonedasV('polkadot-new')
         
-        return scrapper.extraerPrecio()
+        return scrapper.extrarPrecio()
 
     elif mensaje == '/peli':
         eleccion = choice(PelisTMDB.peliDiaria(os.environ["IMDB_TOKEN"]))
