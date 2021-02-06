@@ -22,8 +22,8 @@ def messageHandler(mensaje):
         #return mencion(mensaje, codigos, modelo)
         return 'No hablo tu idioma melón'
         
-    elif mensaje == '/start' or '/help':
-        quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual\n/peli: Te recomiento una película diariamente'
+    elif mensaje == '/start':
+        quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual\n/peli: Te recomiento una película diariamente\n/vacunas: Estado de la vacunación frente al COVID-19 en España'
 
         return quehaceres
 
