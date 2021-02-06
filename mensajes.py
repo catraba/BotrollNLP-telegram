@@ -4,9 +4,9 @@ from re import match
 from random import choice
 
 from scraping import MonedasV, PelisTMDB, Vacunas
-from NLP import processing, mencion
+#from NLP import processing, mencion
 
-codigos, modelo = processing()
+#codigos, modelo = processing()
 
 with open(os.path.join(os.getcwd(), 'conversaciones.json')) as file:
     conversaciones = json.load(file)
@@ -17,9 +17,10 @@ def messageHandler(mensaje):
     matcher = match(patron, mensaje)
 
     if matcher:
-        mensaje = mensaje.replace(os.environ["BOT_NICK"], '').strip()
+        #mensaje = mensaje.replace(os.environ["BOT_NICK"], '').strip()
         
-        return mencion(mensaje, codigos, modelo)
+        #return mencion(mensaje, codigos, modelo)
+        return 'No hablo tu idioma melón'
         
     elif mensaje == '/start' or '/help':
         quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual\n/peli: Te recomiento una película diariamente'
