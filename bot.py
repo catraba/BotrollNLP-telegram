@@ -12,10 +12,14 @@ app = Flask(__name__)
 def main():
     data = request.json
 
-    chat_id = data['message']['chat']['id']
-    mensaje = data['message']['text']
+    try:
+        chat_id = data['message']['chat']['id']
+        mensaje = data['message']['text']
 
-    bot.sendMessage(chat_id, messageHandler(mensaje))
+        bot.sendMessage(chat_id, messageHandler(mensaje))
+        
+    except:
+        pass
 
     return ''
 
