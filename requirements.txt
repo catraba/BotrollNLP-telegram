@@ -1,5 +1,3 @@
 requests
 flask
 beautifulsoup4
-spacy
-sklearn
