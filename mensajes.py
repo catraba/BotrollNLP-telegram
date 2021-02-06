@@ -3,11 +3,13 @@ import json
 from re import match
 from random import choice
 
-from scraping import MonedasV, PelisTMDB
+from scraping import MonedasV, PelisTMDB, Vacunas
 from NLP import processing, mencion
 
 codigos, modelo = processing()
 
+with open(os.path.join(os.getcwd(), 'conversaciones.json')) as file:
+    conversaciones = json.load(file)
 
 def messageHandler(mensaje):
     
@@ -19,7 +21,7 @@ def messageHandler(mensaje):
         
         return mencion(mensaje, codigos, modelo)
         
-    elif mensaje == '/start':
+    elif mensaje == '/start' or '/help':
         quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual\n/peli: Te recomiento una película diariamente'
 
         return quehaceres
@@ -33,6 +35,9 @@ def messageHandler(mensaje):
         eleccion = choice(PelisTMDB.peliDiaria(os.environ["IMDB_TOKEN"]))
         
         return 'Hoy recomendamos: ' + eleccion
+
+    elif mensaje == '/vacunas':
+        return Vacunas.estadoVacunas()
 
     else:
         mensaje = mensaje.lower()
