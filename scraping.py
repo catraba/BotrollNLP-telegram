@@ -46,6 +46,6 @@ class Vacunas():
         for link in soup.find_all('time'):
             fechas.append(link.text)
 
-        estado = 'Población vacunada: ' + str(round(valor, 2)) + '%\n\nEstimación 100% vacunados: ' + fechas[-2]
+        estado = 'Población vacunada: ' + str(round(valor, 2)) + '%\n\nEstimación 75% vacunados: ' + fechas[-2]
     
         return estado
