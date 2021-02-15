@@ -1,7 +1,7 @@
 from constantes import conversaciones
 
 from spacy import load
-nlp = load('es_core_news_lg')
+nlp = load('es_core_news_md-3.0.0/es_core_news_md/es_core_news_md-3.0.0')
 
 from numpy import array, asarray, reshape, argmax
 from sklearn.linear_model import LogisticRegression
@@ -45,7 +45,7 @@ def processing():
             labels = asarray(etiquetas)
 
 
-    LR = LogisticRegression(solver="liblinear", max_iter=10000)
+    LR = LogisticRegression() #solver="liblinear", max_iter=10000
     modelo = LR.fit(vectores, labels)
 
     return codigos, modelo
