@@ -15,8 +15,9 @@ def main():
     try:
         chat_id = data['message']['chat']['id']
         mensaje = data['message']['text']
+        message_id = data['message']['message_id']
 
-        bot.sendMessage(chat_id, messageHandler(mensaje))
+        bot.sendMessage(chat_id, messageHandler(mensaje), message_id)
         
     except:
         pass
