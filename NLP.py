@@ -1,13 +1,16 @@
-from constantes import conversaciones
-
 from spacy import load
 nlp = load('es_core_news_md-3.0.0/es_core_news_md/es_core_news_md-3.0.0')
 
 from numpy import array, asarray, reshape, argmax
 from sklearn.linear_model import LogisticRegression
 
+import os
+import json
 from random import choice
 
+with open(os.path.join(os.getcwd(), 'conversaciones.json')) as file:
+    conversaciones = json.load(file)
+    
 
 def lemmatizer(mensaje, frase=''):
 
