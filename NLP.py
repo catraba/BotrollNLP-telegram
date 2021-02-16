@@ -67,7 +67,7 @@ def mencion(mensaje, codigos, modelo):
 
     respuestas = []
 
-    if maximo > 0.85:
+    if maximo > 0.8:
         opcion = codigos.get(indice)
 
         for intencion in conversaciones['intenciones']:
