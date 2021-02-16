@@ -16,7 +16,8 @@ def lemmatizer(mensaje, frase=''):
 
     with nlp.disable_pipes():
         for palabra in nlp(mensaje):
-            frase = frase + palabra.lemma_ + ' '
+            if palabra.is_stop:
+                frase = frase + palabra.lemma_ + ' '
 
         frase = frase[:-1]
 
