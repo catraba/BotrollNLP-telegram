@@ -45,6 +45,11 @@ def messageHandler(mensaje):
         scrapper = MonedasV('polkadot-new')
         
         return scrapper.extrarPrecio()
+    
+    elif mensaje == '/cake':
+        scrapper = MonedasV('pancakeswap')
+        
+        return scrapper.extrarPrecio()
 
     elif mensaje == '/peli':
         eleccion = choice(PelisTMDB.peliDiaria(os.environ["IMDB_TOKEN"]))
