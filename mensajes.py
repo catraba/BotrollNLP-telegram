@@ -4,9 +4,9 @@ from re import match
 from random import choice
 
 from scraping import MonedasV, PelisTMDB, Vacunas
-from NLP import lemmatizer, processing, mencion
+#from NLP import lemmatizer, processing, mencion
 
-codigos, modelo = processing()
+#codigos, modelo = processing()
 
 with open(os.path.join(os.getcwd(), 'conversaciones.json')) as file:
     conversaciones = json.load(file)
@@ -17,9 +17,9 @@ def messageHandler(mensaje):
     matcher = match(patron, mensaje)
 
     if matcher:
-        mensaje = mensaje.replace(os.environ["BOT_NICK"], '').strip()
+        #mensaje = mensaje.replace(os.environ["BOT_NICK"], '').strip()
         
-        return mencion(lemmatizer(mensaje), codigos, modelo)
+        return 'No tengo suficiente memoria RAM, a ver si @cryptofono hace algo al respecto' #mencion(lemmatizer(mensaje), codigos, modelo)
         
     elif mensaje == '/start':
         quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual. También disponible con eth, xrp y dot\n/peli: Te recomiento una película diariamente\n/vacunas: Estado de la vacunación COVID-19 en España'
@@ -67,7 +67,7 @@ def messageHandler(mensaje):
         
         for palabra in palabras:
             if palabra in faltas_ortograficas:
-                return 'Escribe bien que te meto eh'
+                return 'Mis hogos'
 
             else:
                 pass
