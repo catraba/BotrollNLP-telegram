@@ -22,7 +22,7 @@ def messageHandler(mensaje):
         return 'No tengo suficiente memoria RAM, a ver si @cryptofono hace algo al respecto' #mencion(lemmatizer(mensaje), codigos, modelo)
         
     elif mensaje == '/start':
-        quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual. También disponible con eth, xrp y dot\n/peli: Te recomiento una película diariamente\n/vacunas: Estado de la vacunación COVID-19 en España'
+        quehaceres = 'Comandos disponibles:\n\n/btc: Valor del bitcoin actual. También disponible con eth y dot\n/vacunas: Estado de la vacunación COVID-19 en España'
 
         return quehaceres
 
@@ -36,18 +36,8 @@ def messageHandler(mensaje):
         
         return scrapper.extrarPrecio()
 
-    elif mensaje == '/xrp':
-        scrapper = MonedasV('xrp')
-        
-        return scrapper.extrarPrecio()
-
     elif mensaje == '/dot':
         scrapper = MonedasV('polkadot-new')
-        
-        return scrapper.extrarPrecio()
-    
-    elif mensaje == '/cake':
-        scrapper = MonedasV('pancakeswap')
         
         return scrapper.extrarPrecio()
 
