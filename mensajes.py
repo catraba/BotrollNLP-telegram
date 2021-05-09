@@ -45,7 +45,8 @@ def messageHandler(mensaje):
         return Vacunas.estadoVacunas()
 
     else:
-        org(mensaje)
+        return org(mensaje)
+    
         '''
         mensaje = mensaje.lower()
         palabras = mensaje.split(' ')
