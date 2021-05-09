@@ -3,13 +3,13 @@ import json
 from re import match
 from random import choice
 
-from scraping import MonedasV, PelisTMDB, Vacunas
+from scraping import MonedasV, Vacunas
 #from NLP import lemmatizer, processing, mencion
 
 #codigos, modelo = processing()
 
-with open(os.path.join(os.getcwd(), 'conversaciones.json')) as file:
-    conversaciones = json.load(file)
+#with open(os.path.join(os.getcwd(), 'conversaciones.json')) as file:
+    #conversaciones = json.load(file)
 
 def messageHandler(mensaje):
     
@@ -50,11 +50,6 @@ def messageHandler(mensaje):
         scrapper = MonedasV('pancakeswap')
         
         return scrapper.extrarPrecio()
-
-    elif mensaje == '/peli':
-        eleccion = choice(PelisTMDB.peliDiaria(os.environ["IMDB_TOKEN"]))
-        
-        return 'Hoy recomendamos: ' + eleccion
 
     elif mensaje == '/vacunas':
         return Vacunas.estadoVacunas()
