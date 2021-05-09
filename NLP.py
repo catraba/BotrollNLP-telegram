@@ -8,10 +8,10 @@ from sklearn.linear_model import LogisticRegression
 import os
 import json
 from random import choice
-'''
 
-#with open(os.path.join(os.getcwd(), 'conversaciones.json')) as file:
-    #conversaciones = json.load(file)
+
+with open(os.path.join(os.getcwd(), 'conversaciones.json')) as file:
+    conversaciones = json.load(file)
     
 
 def lemmatizer(mensaje, frase=''):
@@ -77,10 +77,10 @@ def mencion(mensaje, codigos, modelo):
                 respuestas.append(respuesta)
 
         return choice(respuestas)
+'''
 
     
 def org(mensaje):
     for palabra in nlp(mensaje):
-        p = palabra
-        #if palabra.label_ == 'ORG':
-    return p
+        if palabra.label_ == 'ORG':
+            return 'Putos capitalistas'
