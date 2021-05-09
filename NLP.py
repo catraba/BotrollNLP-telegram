@@ -85,4 +85,4 @@ def org(mensaje):
     
     for palabra in doc.ents:
         if palabra.label_ == 'ORG':
-            return 'Putos capitalistas'
+            return 'Estos capitalistas...'
