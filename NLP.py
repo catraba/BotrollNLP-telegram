@@ -83,4 +83,7 @@ def mencion(mensaje, codigos, modelo):
 def org(mensaje):
     #for palabra in nlp(mensaje):
         #if palabra.label_ == 'ORG':
-    return mensaje
+    if nlp:
+        return mensaje
+    else:
+        return 'No ha cargado NLP'
