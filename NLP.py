@@ -80,7 +80,7 @@ def mencion(mensaje, codigos, modelo):
 
     
 def org(mensaje):
-    return 'Hola'
-    #for palabra in nlp(mensaje):
+    for palabra in nlp(mensaje):
+        p = palabra
         #if palabra.label_ == 'ORG':
-            #return 'Putos capitalistas'
+    return p
