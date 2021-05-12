@@ -1,6 +1,8 @@
 from spacy import load
 nlp = load('es_core_news_sm-3.0.0/es_core_news_sm/es_core_news_sm-3.0.0')
 
+from spacy.matcher import Matcher
+
 '''
 from numpy import array, asarray, reshape, argmax
 from sklearn.linear_model import LogisticRegression
@@ -80,9 +82,22 @@ def mencion(mensaje, codigos, modelo):
 '''
 
     
-def org(mensaje):
+def handling(mensaje):
     doc = nlp(mensaje)
     
     for palabra in doc.ents:
         if palabra.label_ == 'ORG':
             return 'Estos capitalistas...'
+        
+        if palabra.label_ == 'LOC':
+            patron = [{"POS": "NOUN"}, {"LIKE_NUM": False}]
+
+            matcher = Matcher(nlp.vocab)
+            matcher.add("Matcheador", [patron])
+
+            matches = matcher(doc)
+
+            for match_id, start, end in matches:
+                span = doc[start:end]
+
+                return 'Las mejores ' + span.text + ' en Madrid'
