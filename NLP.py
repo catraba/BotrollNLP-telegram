@@ -89,7 +89,7 @@ def handling(mensaje):
         if palabra.label_ == 'ORG':
             return 'Estos capitalistas...'
         
-        if palabra.label_ == 'LOC':
+        elif palabra.label_ == 'LOC':
             patron = [{"POS": "NOUN"}, {"LIKE_NUM": False}]
 
             matcher = Matcher(nlp.vocab)
