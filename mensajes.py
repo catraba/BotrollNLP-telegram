@@ -4,7 +4,7 @@ from re import match
 from random import choice
 
 from scraping import MonedasV, Vacunas
-from NLP import handling
+#from NLP import handling
 
 #codigos, modelo = processing()
 
@@ -45,9 +45,6 @@ def messageHandler(mensaje):
         return Vacunas.estadoVacunas()
 
     else:
-        return handling(mensaje)
-    
-        '''
         mensaje = mensaje.lower()
         palabras = mensaje.split(' ')
         
@@ -59,4 +56,3 @@ def messageHandler(mensaje):
 
             else:
                 pass
-        '''
